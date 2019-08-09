@@ -4,17 +4,60 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Example</h5>
-          {{#each fruitArray}}
-          <div class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <img src="{{this.image}}" id={{this.id}} class="fill" draggable="true" ondragstart="drag(event)"
-              data={{this.id}}></img>
-          </div> 
 
-               <!--<div class="empty">
-            <img src="{{this.image}}" id={{this.id}} class="fill" draggable="true"
-              data={{this.id}}></img>
-          </div>-->
-          {{/each}}
+
+
+
+
+
+
+
+
+          <div id="content">
+
+            {{#each fruitArray}}
+
+
+
+            <div class="dragAble" data-r={{fruitLetter}} data-q="0">
+              <p><img src={{image}} alt=""></p>
+            </div>
+            {{!-- <div class="dragAble" data-r="b" data-q="0">
+              <p>Lion</p>
+            </div>
+            <div class="dragAble" data-r="c" data-q="0">
+              <p>Two</p>
+            </div>
+            <div class="dragAble" data-r="d" data-q="0">
+              <p>Horse</p>
+            </div>
+            <div class="dragAble" data-r="e" data-q="0">
+              <p>Yellow</p>
+            </div>
+            <div class="dragAble" data-r="f" data-q="0">
+              <p>Four</p>
+            </div>
+            <div class="dragAble" data-r="g" data-q="0">
+              <p>Green</p>
+            </div> --}}
+
+
+
+
+
+
+          
+
+
+            {{/each}}
+
+          </div>
+         <br>
+
+          <div class="dropAble" data-q="1">
+            <img src="/image/cup.jpeg" alt="">
+          </div>
+
         </div>
 
         <strong>Create your own</strong>: {{example.id}}</p>
@@ -22,9 +65,9 @@
           <p>
             <strong>Pick 3 ingredients to create your own uniqe smothii smoothie</strong>: {{example.text}}</p>
           <p>
-               <div id="cup">
-                 I am a cup
-               </div>
+            <div id="cup">
+              I am a cup
+            </div>
 
 
 
@@ -44,11 +87,11 @@
     e.preventDefault();
   };
 
-  function drag(e) {    
+  function drag(e) {
     e.dataTransfer.setData("text", e.target.id);
     console.log(e.target.id)
   };
-  ​
+
   function drop(e) {
     e.preventDefault();
     var data = e.dataTransfer.getData("text");
@@ -57,4 +100,3 @@
     //document.getElementById(data).setAttribute('draggable', 'false');
   };
 </script>
-

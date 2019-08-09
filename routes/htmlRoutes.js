@@ -10,7 +10,8 @@ var ingredients = [
     restock_ammount: 20,
     restock_price:30 ,  
     text: "avocado is good for whatever",
-    image: "/image/placeholder.jpeg"
+    image: "/image/placeholder.jpeg",
+    fruitLetter: "a"
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ var ingredients = [
     restock_ammount:20,
     restock_price:10,
     text: "strawberry is good for whatever",
-    image: "/image/placeholder.jpeg"
+    image: "/image/placeholder.jpeg",
+    fruitLetter: "b"
   },
   {
     id: 3,
@@ -32,7 +34,8 @@ var ingredients = [
     restock_ammount:20,
     restock_price:5,
     text: "spinache is good for whatever",
-    image: "/image/placeholder.jpeg"
+    image: "/image/placeholder.jpeg",
+    fruitLetter: "c"
   },
   {
     id: 4,
@@ -43,7 +46,8 @@ var ingredients = [
     restock_ammount:20,
     restock_price:10,
     text: "pineapple is good for whatever",
-    image: "/image/placeholder.jpeg"
+    image: "/image/placeholder.jpeg",
+    fruitLetter: "d"
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ var ingredients = [
     restock_ammount:20,
     restock_price:15,
     text: "coconut is good for whatever",
-    image: "/image/placeholder.jpeg"
+    image: "/image/placeholder.jpeg",
+    fruitLetter: "e"
   }
 ]
 module.exports = function(app) {
@@ -70,7 +75,9 @@ module.exports = function(app) {
   
   app.get("/ChooseYourOwn", function(req, res) {
    
-      res.render("ChooseYourOwn")
+ 
+
+      res.render("ChooseYourOwn",{fruitArray:ingredients})
        
       });
     
