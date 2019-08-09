@@ -1,6 +1,12 @@
 var db = require('../models');
 
 module.exports = function(app) {
+  // route to html page for adding ingredient seeds
+  app.get('/test/seed/ingredients', (request, response) => {
+    console.log('adding seed ingredients');
+    response.render('example-seed-ingredients');
+  });
+  
   // route to html form for adding smothii
   app.get('/test/add/smothii', function(req, res) {
     console.log('test add smothii');
