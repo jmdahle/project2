@@ -22,28 +22,48 @@ module.exports = function (app) {
     });
   });
 
-  // ADD SMOOTHIE
+  // ADD SMOTHII
   app.post('/api/add/smothii', (request, response) => {
     db.Smothii.create(request.body).then((dbSmothii) => {
       response.json(dbSmothii);
     });
   });
 
-  // SELECT ALL SMOOTHIES
+  // SELECT ALL SMOTHIIS
   app.get('/api/smothiis', (request, response) => {
-    db.Smothii.findAll({}).then((dbSmothii) => {
-      response.json(dbSmothii);
-    });
-  })
-
-  // SELECT SMOOTHIE BY ID
-  app.get('/api/smothii/:smothii_id', (request, response) => {
-    db.Smothii.findAll({ where: { id: request.params.smothii_id } }).then((dbSmothii) => {
-      response.json(dbSmothii);
+    // update prices
+    updatePrices();
+    // update all smothiis to unavailable
+    let sql = `UPDATE Smothiis set smothii_available = false;`;
+    db.sequelize.query(sql, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults) => {
+      // set smothii availability to true if it is NOT in the list of smothiis that have one or more ingredients that are not available;
+      let sql2 = `update Smothiis set smothii_available = true where smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
+      db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults2) => {
+        // select the smoothies (with current availability)
+        db.Smothii.findAll({}).then( (dbSmothii) => {
+          response.json(dbSmothii);
+        });
+      });
     });
   });
 
-  // UPDATE SMOOTHIE BY ID
+  // SELECT SMOTHII BY ID
+  app.get('/api/smothii/:smothii_id', (request, response) => {
+    // update all smothiis to unavailable
+    let sql = `UPDATE Smothiis set smothii_available = false;`;
+    db.sequelize.query(sql, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults) => {
+      // set smothii availability to true if it is NOT in the list of smothiis that have one or more ingredients that are not available;
+      let sql2 = `update Smothiis set smothii_available = true where smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
+      db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults2) => {
+        // select the smoothies (with current availability)
+        db.Smothii.findAll({ where: { id: request.params.smothii_id } }).then((dbSmothii) => {
+          response.json(dbSmothii);
+        });
+      });
+    });
+  });
+
+  // UPDATE SMOTHII BY ID
   app.put('/api/update/smothii', (request, response) => {
     db.Smothii.update(
       {
@@ -100,7 +120,7 @@ module.exports = function (app) {
       });
   });
 
-  // SELECT INGREDIENTS FOR SMOOTHIE BY SMOOTHIE ID
+  // SELECT INGREDIENTS FOR SMOOTHIE BY SMOTHII ID
   app.get('/api/recipe/:smothii_id', (request, response) => {
     // get the smothii information
     db.Recipe.findAll({ where: { SmothiiId: request.params.smothii_id }, include: [db.Ingredient] }).then((dbRecipie) => {
@@ -108,6 +128,21 @@ module.exports = function (app) {
     });
   });
 
+
+  function updatePrices() {
+    let sql = `select recipes.smothiiid, sum(recipe_amount * (ingredient_restock_price/ingredient_restock_amount)) as total_cost from Recipes inner join ingredients on recipes.ingredientid = ingredients.id  group by recipes.SmothiiId;`;
+    db.sequelize.query(sql, { type: db.sequelize.QueryTypes.SELECT }).then( (dbResults) => {
+      let costsArray = dbResults;
+      for (let i = 0; i < costsArray.length; i ++) {
+        let smothiiPrice = costsArray[i].total_cost * 1.50;
+        let smothii_id = costsArray[i].smothiiid;
+        let sql2 = `UPDATE Smothiis SET smothii_price = ${smothiiPrice} WHERE Smothiis.id = ${smothii_id}`;
+        db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE });
+      }
+    })
+  }
+
+  /*
   // "PURCHASE" a Smothii
   app.post('/api/purchase/:smothii_id', (request, response) => {
     // add transaction
@@ -119,11 +154,5 @@ module.exports = function (app) {
   app.put('/api/restock/:ingredient_id', (request, response) => {
 
   });
-
-  function updateAvailability() {
-    sql = `UPDATE Smothii set smothii.availability = false`;
-    // set smothii availability to true if it is NOT in the list of smothiis that have one or more ingredients that are not available;
-    
-  }
-
+  */
 };
