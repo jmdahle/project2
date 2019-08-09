@@ -1,0 +1,63 @@
+.modal {
+    display: table;
+    display: none;
+    margin: 0 auto;
+    z-index: 1;
+    width: 838px;
+    height: 1147px;
+    left: 91px;
+    top: 110px;
+    background: #F5F4E1;
+    border-radius: 40px;
+    overflow: auto;
+}
+
+#header {
+    display: table;
+    margin: 0 auto;
+    width: 716px;
+    height: 79px;
+    margin-top:100px;
+    text-align: center;
+    font-family: "Dosis";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 78px;
+    line-height: 102.1%;
+    text-align: center;
+    color: #000000;
+}
+
+#gif {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    width: 636px;
+    margin-top: 50px;
+    height: 514px;
+    margin-bottom: 50px;
+}
+
+#didYouKnow {
+    width: 635px;
+    height: 218px;
+    margin-left:101px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
+}
+
+#facts {
+    width: 635px;
+    height: 218px;
+    margin-left:101px;
+    font-family: "Lato";
+    font-style: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+}
