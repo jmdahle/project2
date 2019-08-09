@@ -19,6 +19,12 @@ module.exports = function(app) {
     response.render('example-view-smothiis');
   });
 
+  // route to create-my-own smothii
+  app.get('/test/create-my-own', (request, response) => {
+    console.log('test create-my-own');
+    response.render('example-create-my-own');
+  });
+
   app.get('/test/api/ingredient-list/:smothii_id',  (request, response) => {
     // update all smothiis to unavailable
     let smothii_id = request.params.smothii_id;

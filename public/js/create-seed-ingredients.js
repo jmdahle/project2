@@ -12,7 +12,7 @@ $(document).ready(() => {
             restock_amount: 20,
             restock_price: 30,
             text: "avocado is good for whatever",
-            image: "/image/placeholder.jpeg"
+            image: "/images/sample-ingredient.jpg"
         },
         {
             name: "strawberry",
@@ -22,7 +22,7 @@ $(document).ready(() => {
             restock_amount: 20,
             restock_price: 10,
             text: "strawberry is good for whatever",
-            image: "/image/placeholder.jpeg"
+            image: "/images/sample-ingredient.jpg"
         },
         {
             name: "spinach",
@@ -32,7 +32,7 @@ $(document).ready(() => {
             restock_amount: 20,
             restock_price: 5,
             text: "spinach is good for whatever",
-            image: "/image/placeholder.jpeg"
+            image: "/images/sample-ingredient.jpg"
         },
         {
             name: "pineapple",
@@ -42,7 +42,7 @@ $(document).ready(() => {
             restock_amount: 20,
             restock_price: 10,
             text: "pineapple is good for whatever",
-            image: "/image/placeholder.jpeg"
+            image: "/images/sample-ingredient.jpg"
         },
         {
             name: "coconut",
@@ -52,7 +52,7 @@ $(document).ready(() => {
             restock_amount: 20,
             restock_price: 15,
             text: "coconut is good for whatever",
-            image: "/image/placeholder.jpeg"
+            image: "/images/sample-ingredient.jpg"
         }
     ];
 
