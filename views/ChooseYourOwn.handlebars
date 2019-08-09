@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Example</h5>
+          {{#each fruitArray}}
+          <div class="empty" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <img src="{{this.image}}" id={{this.id}} class="fill" draggable="true" ondragstart="drag(event)"
+              data={{this.id}}></img>
+          </div> 
+
+               <!--<div class="empty">
+            <img src="{{this.image}}" id={{this.id}} class="fill" draggable="true"
+              data={{this.id}}></img>
+          </div>-->
+          {{/each}}
+        </div>
+
+        <strong>Create your own</strong>: {{example.id}}</p>
+        <p>
+          <p>
+            <strong>Pick 3 ingredients to create your own uniqe smothii smoothie</strong>: {{example.text}}</p>
+          <p>
+               <div id="cup">
+                 I am a cup
+               </div>
+
+
+
+            <strong>Description:</strong> {{example.description}}
+          </p>
+
+
+
+
+          <a href="/">← Back To Home</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function allowDrop(e) {
+    e.preventDefault();
+  };
+
+  function drag(e) {    
+    e.dataTransfer.setData("text", e.target.id);
+    console.log(e.target.id)
+  };
+  ​
+  function drop(e) {
+    e.preventDefault();
+    var data = e.dataTransfer.getData("text");
+    e.target.appendChild(document.getElementById(data));
+    // this line will eliminate drag the fruits back:
+    //document.getElementById(data).setAttribute('draggable', 'false');
+  };
+</script>
+
