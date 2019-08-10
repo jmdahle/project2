@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Modal</h2>
+    <button id="myBtn">Open Modal</button>
+    <div id="smoothieModal" class="modal">
+        <div class="modal-content">
+            <p id="header">YOUR SMÖTHII  IS BEING PREPARED</p>
+            <div id="gif">
+                <img src='https://media.giphy.com/media/26xBy4g1eHS1vqZRS/source.gif'/>
+            </div>
+            <div id="info">
+                <span id="didYouKnow">"DID YOU KNOW..."</span>
+                <p id="facts">We compost our food waste at local community gardens? You can too! Visit smothii.com for
+                    more info.  </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("smoothieModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

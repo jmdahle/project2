@@ -4,7 +4,13 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        ingredient_description: {
+            type: DataTypes.TEXT
+        },
         ingredient_unit: {
+            type: DataTypes.STRING
+        },
+        ingredient_image_url: {
             type: DataTypes.STRING
         },
         ingredient_inventory: {
