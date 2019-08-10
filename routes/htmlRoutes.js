@@ -82,6 +82,35 @@ module.exports = function(app) {
       });
     
   
+      app.get("/", function(req, res) {
+   
+ 
+
+        res.render("index")
+         
+        });
+
+        app.get("/menu", function(req, res) {
+   
+ 
+
+          res.render("menu")
+           
+          });
+
+          app.get("//choose-your-own", function(req, res) {
+   
+ 
+
+            res.render("/choose-your-own")
+             
+            });
+        
+
+
+
+
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

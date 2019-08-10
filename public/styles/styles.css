@@ -2,8 +2,21 @@ body {
   background: white;
 }
 
+/* cup, also? */
+.dropAble{
+  
+  background-color:yellow;
+}
+
+.fruit_button{
+
+  width: 150px;
+}
+
 .fill {
-  background-image: url('https://images.pexels.com/photos/38283/bananas-fruit-carbohydrates-sweet-38283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+ 
+  /* background-image: url('https://images.pexels.com/photos/38283/bananas-fruit-carbohydrates-sweet-38283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */ 
+  background: red;
   position: relative;
   height: 150px;
   width: 150px;

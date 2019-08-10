@@ -4,23 +4,12 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">Example</h5>
-
-
-
-
-
-
-
-
-
           <div id="content">
 
             {{#each fruitArray}}
 
-
-
-            <div class="dragAble" data-r={{fruitLetter}} data-q="0">
-              <p><img src={{image}} alt=""></p>
+            <div id="button" class="dragAble" data-r={{fruitLetter}} data-q="0">
+              <p><img class="fruit_button" src={{image}} alt=""></p>
             </div>
             {{!-- <div class="dragAble" data-r="b" data-q="0">
               <p>Lion</p>
@@ -41,21 +30,13 @@
               <p>Green</p>
             </div> --}}
 
-
-
-
-
-
-          
-
-
             {{/each}}
 
           </div>
-         <br>
+          <br>
 
           <div class="dropAble" data-q="1">
-            <img src="/image/cup.jpeg" alt="">
+            {{!-- <img src="/image/cup.jpeg" alt=""> --}}
           </div>
 
         </div>
@@ -68,21 +49,15 @@
             <div id="cup">
               I am a cup
             </div>
-
-
-
             <strong>Description:</strong> {{example.description}}
           </p>
-
-
-
 
           <a href="/">← Back To Home</a>
       </div>
     </div>
   </div>
 </div>
-<script>
+{{!-- <script>
   function allowDrop(e) {
     e.preventDefault();
   };
@@ -99,4 +74,4 @@
     // this line will eliminate drag the fruits back:
     //document.getElementById(data).setAttribute('draggable', 'false');
   };
-</script>
+</script> --}}
