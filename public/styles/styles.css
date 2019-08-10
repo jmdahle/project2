@@ -1,3 +1,89 @@
-.list-group-item {
+body {
+  background: white;
+}
+
+.fill {
+  background-image: url('https://images.pexels.com/photos/38283/bananas-fruit-carbohydrates-sweet-38283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.imagesize{
+  width: 150px;
+  height: 150px;
+}
+.hold {
+  border: solid 5px #ccc;
+}
+
+.box { 
+   display: inline-block; 
+   height: 160px; 
+   background: red; 
+
+   border: 5px solid red;
+
+ } 
+
+.empty{
+   display: inline-block;
+   height: 300px;
+   width: 300px;
+   margin: 10px;
+   border: solid 3px black;
+   background: white;
+}
+
+.hovered {
+  background: #f4f4f4;
+  border-style: dashed;
+}
+
+
+/* .list-group-item {
   line-height: 2.5;
 }
+.fill{
+height: 100px;
+width: 100px;
+
+position: relative;
+}
+
+.empty{
+  display: inline-block;
+  height:110px;
+  width: 110px;
+  margin: 10px;
+  border: 3px #d2ec00 solid;
+  background-color: white;
+}
+
+.hold{
+  border:solid lightgray 4px;
+}
+
+.hovered{
+  background: white;
+  border-style: dashed;
+}
+
+.invisible{
+  display: none;
+}
+
+h1{
+  font-size: 10px;
+}
+
+#cup{
+  height: 500px;
+  width:  400px;
+  border: 3px #d2ec00 solid;
+  background-image:url(https://images-na.ssl-images-amazon.com/images/I/31hYvWlyvbL._SX466_.jpg);
+   
+  margin: 0 auto;
+} */
