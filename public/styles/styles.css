@@ -43,9 +43,102 @@ body {
 }
 
 
-/* .list-group-item {
-  line-height: 2.5;
+
+
+p {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 1em;
 }
+
+#home {
+  background-image: url("../images/homebg.png");
+  background-size: cover;
+  background-attachment: scroll;
+  background-repeat: none;
+  background-position: center;
+}
+
+#title {
+  font-family: Dosis, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  text-align: center;
+  font-size: 9em;
+  padding-top: 1.3em;
+  line-height: 0.9em;
+}
+
+#tagline {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  text-align: right;
+  font-size: 23px;
+  line-height: 27px;
+  padding-bottom: 13em;
+}
+
+button {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  background-color: rgb(210, 236, 0);
+  width: 17em;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 0.3em;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  border-image: initial;
+  padding: 0.8em;
+  margin: 0.8em auto;
+}
+
+form {
+  padding: 0.5em 0.5em 9em;
+  margin: 0px auto;
+}
+
+h1 {
+  font-family: Lato, sans-serif;
+  font-weight: 600;
+  font-size: 5em;
+  text-align: left;
+  line-height: .9em;
+  padding-bottom: .02em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: Lato, sans-serif;
+  font-weight: 600;
+  font-size: 3.2em;
+  text-align: left;
+  line-height: .95em;
+  padding-bottom: .02em;
+}
+
+#ingredients {
+  font-family: Lato, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  line-height: 1em;
+}
+
+#price {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 3em;
+  text-align: center;
+}
+
+#bodyDiv{
+  width: 768px;
+  height: 1024px;
+}
+=======
 .fill{
 height: 100px;
 width: 100px;
@@ -86,4 +179,4 @@ h1{
   background-image:url(https://images-na.ssl-images-amazon.com/images/I/31hYvWlyvbL._SX466_.jpg);
    
   margin: 0 auto;
-} */
+}
