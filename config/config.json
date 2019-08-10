@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "jdahle",
-    "password": "JD@mbpsql5494",
+    "username": "violetchang",
+    "password": "Ax34wo79!",
     "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "violetchang",
+    "password": "Ax34wo79!",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
