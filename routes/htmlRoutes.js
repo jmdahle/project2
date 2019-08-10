@@ -5,11 +5,18 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
       res.render("index")
   });
+​
+  // Load menu page
+  app.get("/menu", function(req, res) {
+      res.render("menu")
+  });
+
 
   // Load menu page
   app.get("/menu", function(req, res) {
       res.render("menu")
   });
+
 
   // Load choose-your-own psge
   app.get("/choose-your-own", function(req, res) {
