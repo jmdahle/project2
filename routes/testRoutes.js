@@ -1,6 +1,12 @@
 var db = require('../models');
 
 module.exports = function(app) {
+  // route to html page for adding ingredient seeds
+  app.get('/test/seed/ingredients', (request, response) => {
+    console.log('adding seed ingredients');
+    response.render('example-seed-ingredients');
+  });
+  
   // route to html form for adding smothii
   app.get('/test/add/smothii', function(req, res) {
     console.log('test add smothii');
@@ -11,6 +17,12 @@ module.exports = function(app) {
   app.get('/test/view/smothiis', (request, response) => {
     console.log('test view all smothies');
     response.render('example-view-smothiis');
+  });
+
+  // route to create-my-own smothii
+  app.get('/test/create-my-own', (request, response) => {
+    console.log('test create-my-own');
+    response.render('example-create-my-own');
   });
 
   app.get('/test/api/ingredient-list/:smothii_id',  (request, response) => {
