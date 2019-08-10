@@ -1,7 +1,79 @@
+.fruit_button{
+  width: 150px;
+}
+.fill {
+ 
+  /* background-image: url('https://images.pexels.com/photos/38283/bananas-fruit-carbohydrates-sweet-38283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */ 
+  background: red;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.imagesize{
+  width: 150px;
+  height: 150px;
+}
+.hold {
+  border: solid 5px #ccc;
+}
+.box { 
+   display: inline-block; 
+   height: 160px; 
+   background: red; 
+   border: 5px solid red;
+ } 
+.empty{
+   display: inline-block;
+   height: 300px;
+   width: 300px;
+   margin: 10px;
+   border: solid 3px black;
+   background: white;
+}
+.hovered {
+  background: #f4f4f4;
+  border-style: dashed;
+}
 #content{
-    height: 700px;
-  }
+  height: 700px;
+}
+.dragAble {
+  
+  width: 160px; height: 160px;
+  border: 1px solid #888888;
+  background: pink;
+  margin: 10px 0;
+  display:inline-block;
+}
+.dragAble p, .dropAble p {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 9px;
+}
+.dragAble p:hover, .dropAble p:hover {
+  cursor: default;
+}
+/* this is the cup */
+.dropAble {
+  position: absolute;
+  z-index: 10;
+  color: aqua;
+  background-color: burlywood;
+  width: 300px; height: 400px;
+  border: 2px dashed #888888;
+  
+ 
+  margin-top: -400px;
+}
+.highlight {
+  border: 2px solid yellow;
+  background-color:yellow;
+}
 
+<<<<<<< HEAD
   .dragAble {
     
     width: 160px; height: 160px;
@@ -10,13 +82,11 @@
     margin: 10px 0;
     display:inline-block;
   }
+=======
+>>>>>>> 1e9afa772e95cdb3b6a5a66ecf359a264dc8569d
 
-  .dragAble p, .dropAble p {
-    font-size: 15px;
-    text-align: center;
-    margin-top: 9px;
-  }
 
+<<<<<<< HEAD
  
   .dragAble p:hover, .dropAble p:hover {
     cursor: default;
@@ -33,11 +103,9 @@
    margin-left: auto;
    margin-right: auto;
   }
+=======
 
-  .highlight {
-    border: 2px solid yellow;
-    background-color:yellow;
-  }
 
-  .true { border: 2px dashed green; }
-  .false { border: 2px dashed red; }
+>>>>>>> 1e9afa772e95cdb3b6a5a66ecf359a264dc8569d
+
+

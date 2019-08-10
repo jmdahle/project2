@@ -7,8 +7,8 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
+    "username": "Sara",
+    "password": "Harley12",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
