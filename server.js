@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -23,6 +24,8 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
+// remove test route when complete
+require('./routes/testRoutes')(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };

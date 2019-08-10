@@ -1,0 +1,38 @@
+#content{
+    height: 700px;
+  }
+
+  .dragAble {
+    width: 160px; height: 40px;
+    border: 1px solid #888888;
+    background: #f0f0f0;
+    margin: 10px 0;
+    display:inline-block;
+  }
+
+  .dragAble p, .dropAble p {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 9px;
+  }
+
+ 
+  .dragAble p:hover, .dropAble p:hover {
+    cursor: default;
+  }
+ 
+
+  .dropAble {
+    width: 580px; height: 160px;
+    border: 2px dashed #888888;
+    margin: 10px 0;
+
+  }
+
+  .highlight {
+    border: 2px solid yellow;
+    background-color:yellow;
+  }
+
+  .true { border: 2px dashed green; }
+  .false { border: 2px dashed red; }
