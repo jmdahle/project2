@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     const Ingredient = sequelize.define("Ingredient", {
         fruitLetter: {
-            type: DataType.STRING
+            type: DataTypes.STRING
         },
         ingredient_name: {
             type: DataTypes.STRING,
