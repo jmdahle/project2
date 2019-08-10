@@ -5,6 +5,7 @@ $(document).ready(() => {
     // seeds array of ingredients
     let seeds = [
         {
+            fruitLetter: 'a',
             name: "avocado",
             unit: '0.25 cups',
             inventory: 40,
