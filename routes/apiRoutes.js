@@ -147,6 +147,7 @@ module.exports = function(app) {
   app.post('/api/purchase/:smothii_id', (request, response) => {
     // add transaction
     // update inventory
+    // update pricing
     // udpate availability
   });
 

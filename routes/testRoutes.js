@@ -2,6 +2,13 @@ var db = require('../models');
 
 module.exports = function(app) {
 
+  // Load vending page
+  app.get("/jd-vend/:smothii_id", function(req, res) {
+    res.render("jd-vend", {
+      smothii_id: req.params.smothii_id
+    });
+  });
+
   // route for easy access to administrative functions
   app.get('/test/admin', (request, response) => {
     console.log('admin page');

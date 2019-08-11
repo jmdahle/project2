@@ -6,11 +6,13 @@ $(document).ready ( () => {
     $(document).on('click', '#go-left', goLeft)
     $(document).on('click', '#go-right', goRight)
     $(document).on('dblclick', '.ingredient-select', selectIngredient)
+    $(document).on('click', '#btn-submit-recipe', submitRecipe);
 
     // global variables
     let ingredientArray = []; // array of ingredients that have not been selected
     let startIngredient = 0; // start index for ingredient list
     let numSelected = 0;
+    let newSmothiiId = 0;
     
     // start up
     setUpIngredientArray();
@@ -40,7 +42,9 @@ $(document).ready ( () => {
         if (inputValid) {
             // submit new record through api
             $.post('/api/add/smothii', newRecord).then( (returnData) => {
-                console.log('Added:', newRecord);
+                console.log('Added:', returnData);
+                newSmothiiId = returnData.id;
+                // console.log('new smothii id is', newSmothiiId);
             }).then( () => {
                 // close Smothii and open Recipe
                 closeSmothiiCard();
@@ -50,6 +54,27 @@ $(document).ready ( () => {
             // warn of error
             showErrorModal('All fields are required');
         }
+    }
+
+    function submitRecipe() {
+        // loop through ingredients and send selected ones
+        for (let i = 0; i< ingredientArray.length; i++) {
+            if (ingredientArray[i].ingredient_selected) {
+                console.log('ingredient selected', ingredientArray[i].ingredient_name);
+                // collect newRecipe data
+                let newRecipe = {
+                    recipe_amount: 1,
+                    SmothiiId: newSmothiiId, // from just made smothii
+                    IngredientId: ingredientArray[i].id
+                }
+                // submit newRecipe through api
+                console.log('adding', newRecipe);
+                $.post('/api/add/recipe', newRecipe).then( (returnData) => {
+                    console.log('added:', returnData);
+                });
+            }
+        }
+        console.log('done adding smothii; ready to vend');
     }
 
     function showErrorModal(message) {
@@ -72,12 +97,26 @@ $(document).ready ( () => {
 
     function showRecipeCard(title) {
         $('#new-recipe-title').text(title);
+        if (numSelected < 3) {
+            closeRecipeButton()
+        } else {
+            showRecipeButton();
+        }
         populateIngredientChoices(startIngredient);
         $('#new-recipe-card').show();
     }
 
     function closeRecipeCard() {
         $('#new-recipe-card').hide();
+        closeRecipeButton();
+    }
+
+    function closeRecipeButton() {
+        $('#btn-submit-recipe').hide();
+    }
+
+    function showRecipeButton() {
+        $('#btn-submit-recipe').show();
     }
 
     function selectIngredient() {
@@ -90,9 +129,11 @@ $(document).ready ( () => {
                     ingredientArray[i].ingredient_selected = false;                        
                     numIndex = i;
                     numSelected--;
+                    closeRecipeButton();
                 } else {
                     if (numSelected < 3) {
-                        ingredientArray[i].ingredient_selected = true;                        
+                        ingredientArray[i].ingredient_selected = true;           
+                        closeRecipeButton();
                         numIndex = i;
                         numSelected++;
                     } else {
@@ -109,6 +150,11 @@ $(document).ready ( () => {
             numIndex = numIndex -1
         }
         populateIngredientChoices(numIndex, 3);
+        // if there are 3 ingredients, you can create the recipe and purchase your smothii
+        if (numSelected === 3) {
+            showRecipeButton();
+        }
+        console.log(`${numSelected} ingredients selected`);
     }
 
     function populateIngredientChoices(start) {
@@ -121,16 +167,16 @@ $(document).ready ( () => {
         let indexNum = start;
         ingredientHtml.push(`<div class='card-deck'>`);
         selectedHtml.push(`<div class='card-deck'>`);
-        console.log(ingredientArray.length);
+        // console.log(ingredientArray.length);
         for (let i = 0; i < ingredientArray.length; i++) {
             if (i + start < ingredientArray.length) {
                 indexNum = i + start;
             } else {
                 indexNum = i + start - ingredientArray.length;
             }
-            console.log(i, 'indexNum',indexNum);
+            // console.log(i, 'indexNum',indexNum);
             let selected = ingredientArray[indexNum].ingredient_selected;
-            console.log(i, indexNum, selected, ingredientArray.length);
+            // console.log(i, indexNum, selected, ingredientArray.length);
             if (selected) {
                 selectedHtml.push(createIngredientCard(ingredientArray[indexNum]).join(''));
             } else {
@@ -167,18 +213,18 @@ $(document).ready ( () => {
     }
 
     function goLeft() {
-        console.log('goLeft', startIngredient);
+        // console.log('goLeft', startIngredient);
         startIngredient++;
         if (startIngredient > ingredientArray.length) {startIngredient -= ingredientArray.length}
-        console.log('goLeft', startIngredient);
+        // console.log('goLeft', startIngredient);
         populateIngredientChoices(startIngredient);
     }
 
     function goRight() {
-        console.log('goRight', startIngredient);
+        // console.log('goRight', startIngredient);
         startIngredient--;
         if (startIngredient < 0) {startIngredient += ingredientArray.length}
-        console.log('goRight', startIngredient);
+        // console.log('goRight', startIngredient);
         populateIngredientChoices(startIngredient);
     }
 

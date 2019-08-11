@@ -137,6 +137,7 @@ h2 {
 #bodyDiv{
   width: 768px;
   height: 1024px;
+  border: 1pt solid red
 }
 =======
 .fill{
