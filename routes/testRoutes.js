@@ -1,10 +1,24 @@
 var db = require('../models');
 
 module.exports = function(app) {
+
+  // Load vending page
+  app.get("/jd-vend/:smothii_id", function(req, res) {
+    res.render("jd-vend", {
+      smothii_id: req.params.smothii_id
+    });
+  });
+
+  // route for easy access to administrative functions
+  app.get('/test/admin', (request, response) => {
+    console.log('admin page');
+    response.render('admin');
+  });
+
   // route to html page for adding ingredient seeds
-  app.get('/test/seed/ingredients', (request, response) => {
+  app.get('/test/seed', (request, response) => {
     console.log('adding seed ingredients');
-    response.render('example-seed-ingredients');
+    response.render('admin-seeds');
   });
   
   // route to html form for adding smothii
