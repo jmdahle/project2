@@ -25,6 +25,10 @@ module.exports = function(sequelize, DataTypes) {
         smothii_total_sold: {
             type: DataTypes.INTEGER,
             defaultValue: 0
+        },
+        smothii_category: {
+            type: DataTypes.STRING,
+            defaultValue: 'user'
         }
     }, {
         timestamps: false

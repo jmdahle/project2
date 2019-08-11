@@ -6,14 +6,7 @@ values ('Simple Smothii', 'The classic.', 'John', '', 3.99, false, 0),
 ('Appleberry', 'Apples and mixed berries', 'Jane', '', 4.99, false, 0),
 ('Gucci', 'Why pay less?', 'Solomon', '', 13.99, false, 0);
 
-insert into Ingredients (ingredient_name, ingredient_unit, ingredient_inventory, ingredient_capacity, ingredient_restock_amount, ingredient_restock_price)
-values ('strawberries', 'cup', 20, 20, 10, 1.00),
-('oranges', 'cup', 20, 20, 10, 1.25),
-('bananas', 'cup', 20, 20, 10, 0.75),
-('bacon', 'tbsp', 20, 20, 5, 1.10),
-('apples', 'cup', 20, 20, 10, 1.45),
-('protein powder', '1/4 cup', 40, 40, 20, 1.00),
-('gold', 'oz', 5, 5, 1, 4.55);
+-- ingredients are populated by navigating to the route /test/seed/ingredients
 
 insert into recipes (SmothiiId, IngredientId, recipe_amount)
 values (1, 1, 1), (1, 2, 1),

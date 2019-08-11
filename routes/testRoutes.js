@@ -1,10 +1,17 @@
 var db = require('../models');
 
 module.exports = function(app) {
+
+  // route for easy access to administrative functions
+  app.get('/test/admin', (request, response) => {
+    console.log('admin page');
+    response.render('admin');
+  });
+
   // route to html page for adding ingredient seeds
-  app.get('/test/seed/ingredients', (request, response) => {
+  app.get('/test/seed', (request, response) => {
     console.log('adding seed ingredients');
-    response.render('example-seed-ingredients');
+    response.render('admin-seeds');
   });
   
   // route to html form for adding smothii

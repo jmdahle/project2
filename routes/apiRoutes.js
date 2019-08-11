@@ -4,28 +4,6 @@ var db = require("../models");
 
 ///
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-     // res.json(dbExamples);
-      res.json(ingredients);
-    });
-  });
-
-  // Create a new example
-  app.post("/api/examples", function (req, res) {
-    db.Example.create(req.body).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
-  // Delete an example by id
-  app.delete("/api/examples/:id", function (req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.json(dbExample);
-    });
-  });
-
   // ADD SMOTHII
   app.post('/api/add/smothii', (request, response) => {
     db.Smothii.create(request.body).then((dbSmothii) => {
@@ -51,8 +29,19 @@ module.exports = function(app) {
     });
   });
 
+
+  // SELECT SMOTHII BY CATEGORY
+  app.get('/api/smothii/:category', (request, response) => {
+    // select where smothii_category = :category
+    // categories: 'user' 'fruit' 'vege'
+    db.Smothii.findAll( {where: { smothii_category: request.params.category }
+    } ).then( (dbSmothii) => {
+      response.json(dbSmothii);
+    });
+  });
+
   // SELECT SMOTHII BY ID
-  app.get('/api/smothii/:smothii_id', (request, response) => {
+  app.get('/api/smothii/detail/:smothii_id', (request, response) => {
     // update all smothiis to unavailable
     let sql = `UPDATE Smothiis set smothii_available = false;`;
     db.sequelize.query(sql, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults) => {
@@ -124,6 +113,13 @@ module.exports = function(app) {
       });
   });
 
+  // ADD RECIPE
+  app.post('/api/add/recipe', (request, response) => {
+    db.Recipe.create(request.body).then((dbRecipe) => {
+      response.json(dbRecipe);
+    });
+  });
+
   // SELECT INGREDIENTS FOR SMOOTHIE BY SMOTHII ID
   app.get('/api/recipe/:smothii_id', (request, response) => {
     // get the smothii information
@@ -146,7 +142,7 @@ module.exports = function(app) {
     })
   }
 
-  /*
+  
   // "PURCHASE" a Smothii
   app.post('/api/purchase/:smothii_id', (request, response) => {
     // add transaction
@@ -158,5 +154,5 @@ module.exports = function(app) {
   app.put('/api/restock/:ingredient_id', (request, response) => {
 
   });
-  */
+
 };
