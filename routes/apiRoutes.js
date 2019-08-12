@@ -19,7 +19,7 @@ module.exports = function(app) {
     let sql = `UPDATE Smothiis set smothii_available = false;`;
     db.sequelize.query(sql, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults) => {
       // set smothii availability to true if it is NOT in the list of smothiis that have one or more ingredients that are not available;
-      let sql2 = `update Smothiis set smothii_available = true where smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
+      let sql2 = `update Smothiis set smothii_available = true where Smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
       db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults2) => {
         // select the smoothies (with current availability)
         db.Smothii.findAll({}).then( (dbSmothii) => {
@@ -46,7 +46,7 @@ module.exports = function(app) {
     let sql = `UPDATE Smothiis set smothii_available = false;`;
     db.sequelize.query(sql, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults) => {
       // set smothii availability to true if it is NOT in the list of smothiis that have one or more ingredients that are not available;
-      let sql2 = `update Smothiis set smothii_available = true where smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
+      let sql2 = `update Smothiis set smothii_available = true where Smothiis.id not in (select distinct SmothiiId from Recipes inner join Ingredients on Recipes.IngredientId = Ingredients.id where Ingredient_inventory < recipe_amount);`;
       db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE }).then( (dbResults2) => {
         // select the smoothies (with current availability)
         db.Smothii.findAll({ where: { id: request.params.smothii_id } }).then((dbSmothii) => {
