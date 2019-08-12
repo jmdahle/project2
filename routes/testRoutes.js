@@ -2,10 +2,26 @@ var db = require('../models');
 
 module.exports = function(app) {
 
+  // Load menu page
+  app.get('/jd-menu', (request, response) => {
+    response.render('jd-menu');
+  });
+
+  // Load choose-your-own
+  app.get('jd-choose-your-own', (request, response) => {
+    response.render('jd-choose-your-own');
+  });
+
+  // Load index page
+  app.get('/jd-index', (request, response) => {
+    response.render('jd-index');
+  });
+
   // Load vending page
-  app.get("/jd-vend/:smothii_id", function(req, res) {
-    res.render("jd-vend", {
-      smothii_id: req.params.smothii_id
+  app.get('/jd-vend/:smothii_id', (request, response) => {
+    console.log('vend the smothii with id', request.params.smothii_id);
+    response.render('jd-vend', {
+      smothii_id: request.params.smothii_id
     });
   });
 
