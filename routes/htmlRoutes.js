@@ -11,12 +11,6 @@ module.exports = function(app) {
       res.render("menu", {});
   });
 
-  // Load menu page
-  app.get("/menu", function(req, res) {
-      res.render("menu", {});
-  });
-
-
   // Load choose-your-own page
   app.get("/choose-your-own", function(req, res) {
       res.render("choose-your-own");
