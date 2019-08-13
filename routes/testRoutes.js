@@ -55,6 +55,12 @@ module.exports = function(app) {
     response.render('example-create-my-own');
   });
 
+  // route to choose-your-own smothii
+  app.get('/test/jd-choose-your-own', (request, response) => {
+    console.log('test jd-choose-your-own');
+    response.render('jd-choose-your-own');
+  });
+
   app.get('/test/api/ingredient-list/:smothii_id',  (request, response) => {
     // update all smothiis to unavailable
     let smothii_id = request.params.smothii_id;

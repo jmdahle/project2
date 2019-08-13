@@ -1,0 +1,72 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <!-- form container: card -->
+            <div id='new-smothii-card' class='card'>
+                <div class='card-body'>
+                    <h5 id='new-smothii-title' class='card-title'>New Smothii</h5>
+                        <!-- form for record -->
+                        <form id='new-smothii'><span id='smothii-id' data-value='new'></span>
+                            <div class='form-group'>
+                                <label for='smothii-name'>Smothii Name</label>
+                                <input type='text' class='form-control' id='smothii-name' placeholder=''>
+                            </div>
+                            <div class='form-group'>
+                                <label for='smothii-description'>Description</label>
+                                <textarea type='textarea' class='form-control' id='smothii-description' rows='2'></textarea>
+                            </div>
+                            <div class='form-group'>
+                                <label for='smothii-creator'>Creator</label>
+                                <input type='text' class='form=control' id='smothii-creator'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='smothii-image-url'>Image URL</label>
+                                <input type='text' class='form=control' id='smothii-image-url'>
+                            </div>
+                            <button id='btn-cancel-smothii' type='button' class='btn btn-danger'>Close without Saving</button>
+                            <button id='btn-submit-smothii' type='button' class='btn btn-success'>Save changes</button>
+                        </form>
+                </div>
+            </div>
+            <!-- form container: card -->
+            <div id='new-recipe-card' class='card'>
+                <div class='card-body'>
+                    <h5 id='new-recipe-title' class='card-title'>Smothii Recipe</h5>
+                        <p>Select 3 ingredients for your custom smothii.</p>
+                        <!-- form for record -->
+                        <form id='new-recipe'>
+                            <div id='content'>
+                            <!-- ingredient selector (Each Ingredient DRAGs)-->
+                                <div id='carousel-ingredients' class='jumbotron'>
+        
+                                </div>
+
+                                <!-- selected ingredients (DROP area)-->
+                                <div id='selected-ingredients' class='jumbotron dropAble' data-q='1'>
+                                
+                                </div>
+                                <button id='btn-submit-recipe' type='button' class='btn btn-success'>Make my Smothii</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <!-- modal - error on form -->
+            <div id='modalError' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-title' class='modal-title'>Error</h5>
+                        </div>
+                        <div id='modal-body' class='modal-body'>
+                            <p id='error-message'></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button id='btn-error-ok' type='button' class='btn btn-danger'>OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='/js/jd-choose-your-own.js'></script>
