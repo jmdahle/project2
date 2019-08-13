@@ -19,7 +19,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 1,
-            ingredientid: 20
+            ingredientid: 19
         },
         {
             recipe_amount: 1,
@@ -34,7 +34,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 2,
-            ingredientid: 22
+            ingredientid: 19
         },
         {
             recipe_amount: 1,
@@ -49,7 +49,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 3,
-            ingredientid: 21
+            ingredientid: 20
         },
         {
             recipe_amount: 1,
@@ -110,7 +110,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/strawberry.jpg'
         },
         {
             fruitLetter: 'b',
@@ -121,7 +121,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/banana.jpg'
         },
         {
             fruitLetter: 'c',
@@ -132,7 +132,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/coconut.jpg'
         },
         {
             fruitLetter: 'd',
@@ -143,7 +143,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/blueberry.jpg'
         },
         {
             fruitLetter: 'e',
@@ -154,7 +154,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/pineapple.jpeg'
         },
         {
             fruitLetter: 'f',
@@ -165,7 +165,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/peach.jpg'
         },
         {
             fruitLetter: 'g',
@@ -176,7 +176,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/avocado.jpg'
         },
         {
             fruitLetter: 'h',
@@ -187,7 +187,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/mango.jpg'
         },
         {
             fruitLetter: 'i',
@@ -198,7 +198,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 4.99,
             text: 'Delicious fruit',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/fruits/apple.jpg'
         },
         {
             fruitLetter: 'j',
@@ -209,7 +209,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 5.99,
             text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/greens/kale.png'
         },
         {
             fruitLetter: 'k',
@@ -220,18 +220,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 5.99,
             text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
-        },
-        {
-            fruitLetter: 'l',
-            name: 'Carrot',
-            unit: '0.25 cup',
-            inventory: 10,
-            capacity: 20,
-            restock_amount: 10,
-            restock_price: 5.99,
-            text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/greens/spinach.png'
         },
         {
             fruitLetter: 'm',
@@ -242,7 +231,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 5.99,
             text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/greens/romaineLettuce.png'
         },
         {
             fruitLetter: 'n',
@@ -253,7 +242,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 5.99,
             text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/greens/collardGreens.png'
         },
         {
             fruitLetter: 'o',
@@ -264,19 +253,8 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 5.99,
             text: 'Savory, fresh vegetables',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/greens/swissChard.png'
         },        
-        {
-            fruitLetter: 'p',
-            name: 'Milk',
-            unit: '1 cup',
-            inventory: 15,
-            capacity: 30,
-            restock_amount: 10,
-            restock_price: 7.99,
-            text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
-        },
         {
             fruitLetter: 'q',
             name: 'Water/Ice',
@@ -286,7 +264,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/ice.png'
         },
         {
             fruitLetter: 'r',
@@ -297,7 +275,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/yogurt.png'
         },
         {
             fruitLetter: 's',
@@ -308,7 +286,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/iceCream.png'
         },
         {
             fruitLetter: 't',
@@ -319,7 +297,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/coconutMilk.png'
         },
         {
             fruitLetter: 'u',
@@ -330,7 +308,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/almondMilk.png'
         },
         {
             fruitLetter: 'v',
@@ -341,7 +319,7 @@ $(document).ready(() => {
             restock_amount: 10,
             restock_price: 7.99,
             text: 'Yummy base for your smothii',
-            image: '/images/sample-ingredient.jpg'
+            image: '/images/individual_ingredients/bases/oatMilk.png'
         }
     ];
 

@@ -67,7 +67,7 @@ $(document).ready ( () => {
         closeModalFinish();
         // go back to index
         // Simulate an HTTP redirect:
-        window.location.replace("/");
+        window.location.replace("/jd-index");
     }
 
 

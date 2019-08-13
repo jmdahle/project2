@@ -8,7 +8,7 @@ module.exports = function(app) {
   });
 
   // Load choose-your-own
-  app.get('jd-choose-your-own', (request, response) => {
+  app.get('/jd-choose-your-own', (request, response) => {
     response.render('jd-choose-your-own');
   });
 
@@ -77,4 +77,17 @@ module.exports = function(app) {
       response.json(dbResults);
     });
   });
+
+  app.get('/test/jd-manage', (request,response) => {
+    response.render('jd-manage');
+  });
+
+  app.get('/test/api/low-inventory', (request, response) => {
+    let sql ='SELECT id, ingredient_name, ingredient_inventory, ingredient_capacity, ingredient_restock_amount, ingredient_restock_price FROM Ingredients WHERE ingredient_inventory < 10 ORDER BY ingredient_inventory DESC';
+    db.sequelize.query(sql, { type: db.sequelize.QueryTypes.SELECT }).then(
+      (dbIngredient) => {
+        response.json(dbIngredient);
+    });
+  });
+
 };

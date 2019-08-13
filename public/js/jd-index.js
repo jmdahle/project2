@@ -8,14 +8,13 @@ $(document).ready( () => {
     event.preventDefault();
     alert('go to menu');
     // Simulate an HTTP redirect:
-    window.location.replace("/menu");
+    window.location.replace("/jd-menu");
   }
 
   function linkToCreate (event) {
     event.preventDefault();
-    alert('go to create your own page');
     // Simulate an HTTP redirect:
-    window.location.replace("/test/create-my-own");
+    window.location.replace("/jd-choose-your-own");
   }
   /* jd - commented out unused code 
 
