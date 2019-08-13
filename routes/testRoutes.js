@@ -8,7 +8,7 @@ module.exports = function(app) {
   });
 
   // Load choose-your-own
-  app.get('jd-choose-your-own', (request, response) => {
+  app.get('/jd-choose-your-own', (request, response) => {
     response.render('jd-choose-your-own');
   });
 
