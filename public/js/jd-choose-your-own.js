@@ -23,15 +23,18 @@ $(document).ready ( () => {
     // for DRAG and DROP
     function allowDrop(e) {
         e.preventDefault();
+        console.log ('allowDrop ran');
     };
     
     function drag(e) {
+        console.log ('drag ran');
         e.dataTransfer.setData("text", e.target.id);
         console.log(e.target.id)
     };
     
     function drop(e) {
         e.preventDefault();
+        console.log ('drop ran');
         var data = e.dataTransfer.getData("text");
         e.target.appendChild(document.getElementById(data));
         // this line will eliminate drag the fruits back:
@@ -218,11 +221,26 @@ $(document).ready ( () => {
     
         $('#carousel-ingredients').append(ingredientItem);
         $('#selected-ingredients').append(selectedItem);
+
+        // for DRAG and DROP
+        $('.ingredient-select').draggable({
+            "containment": "#content",
+            "cursor": "move",
+            "stack": ".ingredient-select"
+        });
+
+        $(".dropzone").droppable({
+            "accept": ".ingredient-select",
+            "hoverClass": "highlight",
+            "drop": function (event, ui) {
+            $(ui.draggable).data("q", $(this).data('q'));
+            }
+        });
     }
 
     function createIngredientCard(ingredient) {
         let ingredientCard = [];
-        ingredientCard.push(`<div class='card ingredient-select dragAble' data-q='0' data-r='${ingredient.ingredient_fruitLetter}' data-ingredient-id='${ingredient.id}'>`)
+        ingredientCard.push(`<div class='card ingredient-select' data-q='0' data-r='${ingredient.ingredient_fruitLetter}' data-ingredient-id='${ingredient.id}'>`)
         ingredientCard.push(`<p><img class='imagesize' src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'></p>`);
         ingredientCard.push(`<div class='card-body'>`);
         ingredientCard.push(`<h5 class='card-title'>${ingredient.ingredient_name}</h5>`);
