@@ -19,6 +19,25 @@ $(document).ready ( () => {
     showSmothiiCard('Custom Smothii');
     closeRecipeCard();
 
+
+    // for DRAG and DROP
+    function allowDrop(e) {
+        e.preventDefault();
+    };
+    
+    function drag(e) {
+        e.dataTransfer.setData("text", e.target.id);
+        console.log(e.target.id)
+    };
+    
+    function drop(e) {
+        e.preventDefault();
+        var data = e.dataTransfer.getData("text");
+        e.target.appendChild(document.getElementById(data));
+        // this line will eliminate drag the fruits back:
+        //document.getElementById(data).setAttribute('draggable', 'false');
+    };
+
     function submitNewSmothii() {
         // collect newRecord data
         let newRecord = {
@@ -203,8 +222,8 @@ $(document).ready ( () => {
 
     function createIngredientCard(ingredient) {
         let ingredientCard = [];
-        ingredientCard.push(`<div class='card ingredient-select' style='width: 150px;' data-ingredient-id='${ingredient.id}'>`)
-        ingredientCard.push(`<img src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'>`);
+        ingredientCard.push(`<div class='card ingredient-select dragAble' data-q='0' data-r='${ingredient.ingredient_fruitLetter}' data-ingredient-id='${ingredient.id}'>`)
+        ingredientCard.push(`<p><img class='imagesize' src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'></p>`);
         ingredientCard.push(`<div class='card-body'>`);
         ingredientCard.push(`<h5 class='card-title'>${ingredient.ingredient_name}</h5>`);
         ingredientCard.push(`<p class='card-text'>${ingredient.ingredient_description}</p>`);
@@ -240,6 +259,7 @@ $(document).ready ( () => {
                 ingredientArray.push( {
                     rawData: ingredients[i],
                     id: ingredients[i].id,
+                    ingredient_fruitLetter: ingredients[i].fruitLetter,
                     ingredient_name: ingredients[i].ingredient_name,
                     ingredient_description: ingredients[i].ingredient_description,
                     ingredient_unit: ingredients[i].ingredient_unit,
