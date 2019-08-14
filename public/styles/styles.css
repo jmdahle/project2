@@ -182,7 +182,9 @@ h1{
   margin: 0 auto;
 }
 
-
+p.sm-text {
+  font-size: 1.00em;
+}
 
  
 .fruit_button{
@@ -248,4 +250,12 @@ h1{
 .highlight {
   border: 2px solid yellow;
   background-color:yellow;
+}
+
+/* some css for the modals - to keep from centering in viewport*/
+.modal-dialog {
+    position: absolute;
+    /* right: 0; */
+    top: 10px;
+    left: 200px;
 }

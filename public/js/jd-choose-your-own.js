@@ -3,10 +3,13 @@ $(document).ready ( () => {
     $(document).on('click', '#btn-submit-smothii', submitNewSmothii);
     $(document).on('click', '#btn-cancel-smothii', closeRecipeCard);
     $(document).on('click', '#btn-error-ok', closeErrorModal);
-    $(document).on('click', '#go-left', goLeft)
-    $(document).on('click', '#go-right', goRight)
-    $(document).on('dblclick', '.ingredient-select', selectIngredient)
+    $(document).on('click', '#go-left', goLeft);
+    $(document).on('click', '#go-right', goRight);
+    $(document).on('dblclick', '.ingredient-select', addIngredient)
     $(document).on('click', '#btn-submit-recipe', submitRecipe);
+    $(document).on('click', '#btn-right-smothii-image', changeSmothiiImage);
+    $(document).on('click', '#btn-reset-recipe', resetRecipe);
+
 
     // global variables
     let ingredientArray = []; // array of ingredients that have not been selected
@@ -19,13 +22,25 @@ $(document).ready ( () => {
     showSmothiiCard('Custom Smothii');
     closeRecipeCard();
 
+    function changeSmothiiImage() {
+        let currImageIndex = parseInt($('#new-smothii').attr('data-smothii-image-index'));
+        currImageIndex ++;
+        if (currImageIndex > 9) {
+            currImageIndex = 1;
+        }
+        $('#new-smothii').attr('data-smothii-image-index', currImageIndex);
+        $('#new-smothii').attr('style', `background: url(/images/smothiis/${currImageIndex}.png`);
+    }
+
     function submitNewSmothii() {
         // collect newRecord data
+        let currImageIndex = parseInt($('#new-smothii').attr('data-smothii-image-index'));
+        let image = `/images/smothiis/${currImageIndex}.png`
         let newRecord = {
             smothii_name: $('#smothii-name').val().trim(),
             smothii_description: $('#smothii-description').val().trim(),
             smothii_creator: $('#smothii-creator').val().trim(),
-            smothii_image_url: $('#smothii-image-url').val().trim()
+            smothii_image_url: image
         }
         // validate input
         let inputValid = false
@@ -33,8 +48,7 @@ $(document).ready ( () => {
         if (
                 (newRecord.smothii_name.length > 0) &&
                 (newRecord.smothii_description.length > 0) &&
-                (newRecord.smothii_creator.length > 0) &&
-                (newRecord.smothii_image_url.length > 0)
+                (newRecord.smothii_creator.length > 0)
             ) {
             inputValid = true;
         }
@@ -54,6 +68,16 @@ $(document).ready ( () => {
             // warn of error
             showErrorModal('All fields are required');
         }
+    }
+
+    function resetRecipe() {
+        console.log('reset recipe');
+        for (i = 0; i < ingredientArray.length; i++) {
+            ingredientArray[i].ingredient_selected = false;
+        }
+        numSelected = 0;
+        populateIngredientChoices(0);
+        closeRecipeButton();
     }
 
     function submitRecipe() {
@@ -121,10 +145,14 @@ $(document).ready ( () => {
         $('#btn-submit-recipe').show();
     }
 
-    function selectIngredient() {
-        let numIndex = 0;
+    function addIngredient() {
         let ingredientID = $(this).attr('data-ingredient-id');
-        console.log(`Selected ingredient ID #${ingredientID}`);
+        console.log(`Selected ingredient ID #${ingredientID}`);  
+        selectIngredient(ingredientID);      
+    }
+
+    function selectIngredient(ingredientID) {
+        let numIndex = 0;
         for (i = 0; i < ingredientArray.length; i++) {
             if (parseInt(ingredientArray[i].id) == parseInt(ingredientID)) {
                 if (ingredientArray[i].ingredient_selected === true) {
@@ -151,7 +179,7 @@ $(document).ready ( () => {
         } else {
             numIndex = numIndex -1
         }
-        populateIngredientChoices(numIndex, 3);
+        populateIngredientChoices(numIndex);
         // if there are 3 ingredients, you can create the recipe and purchase your smothii
         if (numSelected === 3) {
             showRecipeButton();
@@ -168,7 +196,7 @@ $(document).ready ( () => {
         let selectedHtml = [];
         let indexNum = start;
         ingredientHtml.push(`<div class='card-deck'>`);
-        selectedHtml.push(`<div class='card-deck'>`);
+        //selectedHtml.push(`<div class='card-deck'>`);
         // console.log(ingredientArray.length);
         for (let i = 0; i < ingredientArray.length; i++) {
             if (i + start < ingredientArray.length) {
@@ -181,6 +209,7 @@ $(document).ready ( () => {
             // console.log(i, indexNum, selected, ingredientArray.length);
             if (selected) {
                 selectedHtml.push(createIngredientCard(ingredientArray[indexNum]).join(''));
+                selectedHtml.push('<br>');
             } else {
                 if (count < max) {
                     ingredientHtml.push(createIngredientCard(ingredientArray[indexNum]).join(''));
@@ -188,45 +217,79 @@ $(document).ready ( () => {
                 }
             }
         }
+        // fill in blanks where selected < 3
+        let numberOfBlanks = 3 - numSelected;
+        for (let b = 0; b < numberOfBlanks; b++) {
+            selectedHtml.push(createBlankIngredientCard().join(''));
+        }
+
         ingredientHtml.push(`</div>`);
-        selectedHtml.push(`</div>`);
+        //selectedHtml.push(`</div>`);
 
-        ingredientHtml.push(`<a id='go-left' class="carousel-control-prev" role="button" ><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>`);
-        ingredientHtml.push(`<a id='go-right' class="carousel-control-next" role="button"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>`);
-
+        //ingredientHtml.push(`<a id='go-left' class="carousel-control-prev" role="button" ><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>`);
+        //ingredientHtml.push(`<a id='go-right' class="carousel-control-next" role="button"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>`);
+        
         let ingredientItem = $(ingredientHtml.join(''));
         let selectedItem = $(selectedHtml.join(''));
     
         $('#carousel-ingredients').append(ingredientItem);
         $('#selected-ingredients').append(selectedItem);
+
+        // for DRAG and DROP
+        $('.ingredient-select').draggable({
+            "containment": "#content",
+            "cursor": "move",
+            "stack": ".ingredient-select"
+        });
+
+        $(".dropzone").droppable({
+            "accept": ".ingredient-select",
+            "hoverClass": "highlight",
+            "drop": function (event, ui) {
+                console.log($(this));
+                console.log()
+                $(ui.draggable).data("q", $(this).data('q'));
+                let ingredientId = $(ui.draggable).attr('data-ingredient-id');
+                console.log('dropped ingredient id', ingredientId);
+                selectIngredient(ingredientId);
+            }
+        });
     }
 
     function createIngredientCard(ingredient) {
         let ingredientCard = [];
-        ingredientCard.push(`<div class='card ingredient-select' style='width: 150px;' data-ingredient-id='${ingredient.id}'>`)
-        ingredientCard.push(`<img src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'>`);
+        ingredientCard.push(`<div class='card ingredient-select' style='width: 175px' data-ingredient-id='${ingredient.id}'>`)
+        // ingredientCard.push(`<p style='height: 145px'><img src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'></p>`);
         ingredientCard.push(`<div class='card-body'>`);
-        ingredientCard.push(`<h5 class='card-title'>${ingredient.ingredient_name}</h5>`);
-        ingredientCard.push(`<p class='card-text'>${ingredient.ingredient_description}</p>`);
+        ingredientCard.push(`<p class='card-title sm-text'>${ingredient.ingredient_name}</p>`);
+        ingredientCard.push(`<img src='${ingredient.ingredient_image_url}' class='card-img-top' alt='${ingredient.ingredient_name}'>`);
+        //ingredientCard.push(`<p class='card-text'>${ingredient.ingredient_description}</p>`);
         ingredientCard.push(`</div>`);
         ingredientCard.push(`</div>`);
 
         return ingredientCard;
     }
 
-    function goLeft() {
-        // console.log('goLeft', startIngredient);
-        startIngredient++;
-        if (startIngredient > ingredientArray.length) {startIngredient -= ingredientArray.length}
-        // console.log('goLeft', startIngredient);
-        populateIngredientChoices(startIngredient);
+    function createBlankIngredientCard () {
+        let blankIngredient = {
+            ingredient_fruitLetter: 'z',
+            id: 999,
+            ingredient_image_url: '/images/individual_ingredients/blank.jpeg',
+            ingredient_name: ''
+        }
+        let blankIngredientCard = createIngredientCard(blankIngredient);
+        return blankIngredientCard;
     }
 
     function goRight() {
-        // console.log('goRight', startIngredient);
+        startIngredient++;
+        if (startIngredient > ingredientArray.length) {startIngredient -= ingredientArray.length}
+        populateIngredientChoices(startIngredient);
+    }
+
+    function goLeft() {
         startIngredient--;
         if (startIngredient < 0) {startIngredient += ingredientArray.length}
-        // console.log('goRight', startIngredient);
         populateIngredientChoices(startIngredient);
     }
 
@@ -240,6 +303,7 @@ $(document).ready ( () => {
                 ingredientArray.push( {
                     rawData: ingredients[i],
                     id: ingredients[i].id,
+                    ingredient_fruitLetter: ingredients[i].fruitLetter,
                     ingredient_name: ingredients[i].ingredient_name,
                     ingredient_description: ingredients[i].ingredient_description,
                     ingredient_unit: ingredients[i].ingredient_unit,
@@ -253,18 +317,6 @@ $(document).ready ( () => {
             }
             console.log('created array', ingredientArray.length)
         });
-    }
-
-    function closeNewRecordCard() {
-        console.log('log - close dialog');
-        $('#new-record-card').hide();
-        //clear inputs
-        $('#record-id').attr('data-value','new');
-        $('#record-id').text('new');
-        $('#smothii-name').val('');
-        $('#smothii-description').val('');
-        $('#smothii-creator').val('');
-        $('#smothii-image-url').val('');
     }
 
 });
