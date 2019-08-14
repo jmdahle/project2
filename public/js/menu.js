@@ -3,19 +3,19 @@ $(document).ready(() => {
         $.get('/api/smothii/fruit', (dbFruits) => {
             var fruits = dbFruits;
             for (var i = 0; i < fruits.length; i++) {
-                
-                var smothiicard = `<div class='xxxxxx smothii-card' data-id='${dbFruits[i].id}`
-                append
-                
-                // <div class="d-inline-block card" id="card" style="width: 20rem;">
-                // <img class="card-img-top"
-                //   src="https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325253/assortment-of-fruits.jpg"
-                //   alt="Smoothie">
-                // <div class="card-body">
-                //   <h5 class="card-title">Mongo Berry</h5>
-                //   <p class="card-text">$4.99</p>
-                // </div>
-            
+
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${dbFruits[i].id}'>`);
+                var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${dbFruits[i].smothii_image_url}'>`);
+                $(".menuCard").append(smoothieImage)
+                console.log(smoothieImage)
+                var smoothieBody = $(`<div class='card-body menuCard-body'>`);
+                var smoothieName = $(`<h5 class='card-title menuCard-title'>${dbFruits[i].smothii_name}</h5>`);
+                var smoothiePrice = $(`<p class='card-text menuCard-text'>${dbFruits[i].smothii_price}</p>`)
+                $(".menuCard-body").append(smoothieName)
+                $(".menuCard-body").append(smoothiePrice)
+                $(".menuCard").append(smoothieBody)
+                $("#smoothieRecipes").append(smoothieCard)
+
                 // var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
                 // // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
                 // var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
@@ -28,13 +28,13 @@ $(document).ready(() => {
         })
     });
 
-$(document).on('click', '.smothii-card', openVend);
+    $(document).on('click', '.smothii-card', openVend);
 
-function openVend (event) {
-    console.log('working');
-    var smothii_id = $(this).attr('data-id');
-    window.location.replace(`/vend/${smothii_id}`);
-}
+    function openVend(event) {
+        console.log('working');
+        var smothii_id = $(this).attr('data-id');
+        window.location.replace(`/vend/${smothii_id}`);
+    }
 
     $("#veggieButton").on("click", function (event) {
         $.get('/api/smothii/vege', (dbVege) => {
