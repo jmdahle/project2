@@ -1,54 +1,40 @@
 $(document).ready(() => {
-    $(".smoothieCard").hide();
     $("#fruitButton").on("click", function (event) {
         $.get('/api/smothii/fruit', (dbFruits) => {
-            // each fruit recipe gets added to array
             var fruits = dbFruits;
-
-            $(".smoothieCard").show();
             for (var i = 0; i < fruits.length; i++) {
-
-                // <div class='card smothii-small' data-smothii-id=`${smothii.id}`>
-                //     <img src=`${smothii.smothii_image_url}` class='card-img-top smoothie-small-image' alt=`${smothii.smothii_name}`/>
-                //     <div class='card-body'>
-                //     <h5 class='card title'>`${smothii.smothii_name}`</h5>
-                //     </div>
+                
+                var smothiicard = `<div class='xxxxxx smothii-card' data-id='${dbFruits[i].id}`
+                append
+                
+                // <div class="d-inline-block card" id="card" style="width: 20rem;">
+                // <img class="card-img-top"
+                //   src="https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325253/assortment-of-fruits.jpg"
+                //   alt="Smoothie">
+                // <div class="card-body">
+                //   <h5 class="card-title">Mongo Berry</h5>
+                //   <p class="card-text">$4.99</p>
                 // </div>
-
-                var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
-                // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
-                var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
-                var smoothieImage = $(`<img class='card-img-top smoothie-small-image' src=${dbFruits[i].smothii_image_url} >`);
-                let smoothiePrice = $(`<h5 class='card-body'>${dbFruits[i].smothii_price}</h5>`)
-                // smoothieImage.attr("src", dbFruits[i].smothii_image_url);
-                // smoothieImage.attr("class='card-img-top smoothie-small-image");
-                // smoothieImage.attr("style", "width:100px; height:100px")
-                // smoothieName.attr(`<div class='card-title'>`);
-                // smoothiePrice.attr(`<div class='card-body'>`);
-                $(".smoothieCard").append(smoothieImage)
-                $(".smoothieCard").append(smoothieName)
-                $(".smoothieCard").append(smoothiePrice)
+            
+                // var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
+                // // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
+                // var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
+                // var smoothieImage = $(`<img class='card-img-top smoothie-small-image' src=${dbFruits[i].smothii_image_url} >`);
+                // let smoothiePrice = $(`<h5 class='card-body'>${dbFruits[i].smothii_price}</h5>`)
+                // $(".smoothieCard").append(smoothieImage)
+                // $(".smoothieCard").append(smoothieName)
+                // $(".smoothieCard").append(smoothiePrice)
             }
         })
     });
 
-    $("#card").on("click", function (event) {
-        window.open('id-vend');
-        //check route
-    })
+$(document).on('click', '.smothii-card', openVend);
 
-    // function createRecipeCard(recipe) {
-    //     let recipeCard = [];
-    //     smoothieCard.push(`<div class='card ingredient-select' style='width: 150px;' data-ingredient-id='${smothii.id}'>`)
-    //     smoothieCard.push(`<img src='${smothii.smothii_image_url}' class='card-img-top' alt='${smothii.smothii_name}'>`);
-    //     smoothieCard.push(`<div class='card-body'>`);
-    //     smoothieCard.push(`<h5 class='card-title'>${smothii.smothii_name}</h5>`);
-    //     smoothieCard.push(`</div>`);
-    //     smoothieCard.push(`</div>`);
-
-    //     return recipeCard;
-    // }
-
+function openVend (event) {
+    console.log('working');
+    var smothii_id = $(this).attr('data-id');
+    window.location.replace(`/vend/${smothii_id}`);
+}
 
     $("#veggieButton").on("click", function (event) {
         $.get('/api/smothii/vege', (dbVege) => {
@@ -71,12 +57,12 @@ $(document).ready(() => {
     })
 })
 
+// $("#card").on("click", function (event) {
+//     window.open('id-vend');
+//     //check route
+// })
+
 // function checkStock(){
 // if (stock == 0){
 //     <img src="public/images/outofstock" alt="outOfStock"></img>
 // }
-// $.post('/api/add/smothii', newSmothii);
-// console.log('added', i, newSmothii.smothii_name);
-// $.post('/api/add/recipe', newRecipe).then( (returnData) => {
-//     console.log('added:', returnData);
-// });
