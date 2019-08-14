@@ -36,7 +36,7 @@
         var btn = document.getElementById("myBtn");
 
         // When the user clicks the button, open the modal 
-        btn.onclick = function () {
+        btn.onclick = myFunction () {
             modal.style.display = "block";
         }
         // When the user clicks anywhere outside of the modal, close it
@@ -45,6 +45,14 @@
                 modal.style.display = "none";
             }
         }
+
+        function myFunction() {
+            setTimeout(function () {
+                alert("Hello");
+            }, 100000
+            )}
+
+        
     </script>
 </body>
 

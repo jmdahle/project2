@@ -4,17 +4,32 @@ $(document).ready(() => {
         $.get('/api/smothii/fruit', (dbFruits) => {
             // each fruit recipe gets added to array
             var fruits = dbFruits;
+
+            
+
+
+
             $(".smoothieCard").show();
             for (var i = 0; i < fruits.length; i++) {
-                //var smoothieCard = $(`<div class='card ingredient-select'>`)
-                var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
-                var smoothieImage = $("<img>");
-                let smoothiePrice = $("<span>").text(dbFruits[i].smothii_price);
-                smoothieImage.attr("src", dbFruits[i].smothii_image_url);
-                smoothieImage.attr("class='card-img-top'");
-                smoothieImage.attr("style", "width:100px; height:100px")
-                smoothieName.attr(`<div class='card-title'>`);
-                smoothiePrice.attr(`<div class='card-body'>`);
+
+                // <div class='card smothii-small' data-smothii-id=`${smothii.id}`>
+                //     <img src=`${smothii.smothii_image_url}` class='card-img-top smoothie-small-image' alt=`${smothii.smothii_name}`/>
+                //     <div class='card-body'>
+                //     <h5 class='card title'>`${smothii.smothii_name}`</h5>
+                //     </div>
+                // </div>
+
+            
+                var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
+                // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
+                var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
+                var smoothieImage = $(`<img class='card-img-top smoothie-small-image' src=${dbFruits[i].smothii_image_url} >`);
+                let smoothiePrice = $(`<h5 class='card-body'>${dbFruits[i].smothii_price}</h5>`)
+                // smoothieImage.attr("src", dbFruits[i].smothii_image_url);
+                // smoothieImage.attr("class='card-img-top smoothie-small-image");
+                // smoothieImage.attr("style", "width:100px; height:100px")
+                // smoothieName.attr(`<div class='card-title'>`);
+                // smoothiePrice.attr(`<div class='card-body'>`);
                 $(".smoothieCard").append(smoothieImage)
                 $(".smoothieCard").append(smoothieName)
                 $(".smoothieCard").append(smoothiePrice)
@@ -22,6 +37,10 @@ $(document).ready(() => {
         })
     });
 
+    $("#card").on("click", function (event) {
+        alert("Alerted");
+    })
+    
 
     // function createRecipeCard(recipe) {
     //     let recipeCard = [];
@@ -34,8 +53,6 @@ $(document).ready(() => {
 
     //     return recipeCard;
     // }
-
-
 
 
     $("#veggieButton").on("click", function (event) {
