@@ -52,6 +52,9 @@ $(document).ready ( () => {
         // show the make modal
         let message = 'Making your delicious smothii';
         openModalMake(message);
+        // here is where the animated gif goes
+        //set a timer
+        // when timer ends, call makePurchase();
     }
 
     function makePurchase() {

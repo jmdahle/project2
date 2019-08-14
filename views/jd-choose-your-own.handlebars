@@ -4,7 +4,7 @@
             <!-- form container: card -->
             <div id='new-smothii-card' class='card'>
                 <div class='card-body'>
-                    <h5 id='new-smothii-title' class='card-title'>New Smothii</h5>
+                    <h1 id='new-smothii-title' class='card-title'>New Smothii</h1>
                     <!-- form for record -->
                     <form id='new-smothii' data-smothii-image-index='1' style='background: url(/images/smothiis/1.png')><span id='smothii-id' data-value='new'></span>
                         <div class='row'>
@@ -23,7 +23,7 @@
                                     <input type='text' class='form-control' id='smothii-creator'>
                                 </div>
                                 <div class='form-group'>
-                                    Change Your Smothii Image<a id='btn-right-smothii-image'>  <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                    <a id='btn-right-smothii-image'>  <i id='change-smothii-image' class="fa fa-chevron-right" aria-hidden="true"></i></a><span id='btn-title-change-smothii'>Change Your Smothii Image</h5>
                                 </div>
                             </div>
                             <div class='col-md-3'>
@@ -47,15 +47,17 @@
                             <div class='col-md-10'>
                                 <div id='content'>
                                 <!-- ingredient selector (Each Ingredient DRAGs)-->
-                                    <div id='carousel-ingredients' class='jumbotron'>
+                                    <div id='carousel-ingredients'>
             
                                     </div>
 
                                     <!-- selected ingredients (DROP area)-->
-                                    <div id='selected-ingredients' class='jumbotron dropzone' data-q='1'>
+                                    <img id='smothii-cup' class='dropzone' src='/images/emptySmothiiCup.png' alt='smothii-cup'>
+                                    <div id='spacer' style='height: 200px;'></div>
+                                    <div id='selected-ingredients'>
                                     
                                     </div>
-                                    <button id='btn-submit-recipe' type='button' class='btn btn-success'>Make my Smothii</button>
+                                    <button id='btn-reset-recipe' type='button' class='btn btn-success'>Reset Recipe</button>                                    <button id='btn-submit-recipe' type='button' class='btn btn-success'>Make my Smothii</button>
                                 </div>
                             </div>
                             <div class='col-md-1'>

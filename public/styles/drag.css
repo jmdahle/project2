@@ -57,21 +57,57 @@
   cursor: default;
 }
 /* this is the cup */
-.dropAble {
-  position: absolute;
+.dropAble, #smothii-cup {
+  position: fixed;
+  left: 40px;
+  top: 325px;
   z-index: 10;
   color: aqua;
-  background-color: burlywood;
-  width: 300px; height: 400px;
-  border: 2px dashed #888888;
-  
- 
-  margin-top: -400px;
+  /* background-color: burlywood; */
+  width: 375px;
+  /* height: 400px; */
+  /* border: 2px dashed #888888;  */
 }
 .highlight {
   border: 2px solid yellow;
   background-color:yellow;
 }
+
+#selected-ingredients {
+  position: fixed;
+  left: 130px;
+  top: 350px;
+  width: 250px;
+  /* border: 2px solid blue;  */
+}
+
+#btn-reset-recipe {
+  position: fixed;
+  left: 450px;
+  top: 600px;
+}
+
+#btn-submit-recipe {
+  position: fixed;
+  left: 450px;
+  top: 700px;
+}
+
+#go-left, #go-right {
+  font-size: 400%;
+  color: #7AC313;
+}
+
+#change-smothii-image {
+  color: #f27690;
+  font-size: 200%;
+}
+
+#btn-title-change-smothii {
+  font-size: 150%;
+}
+
+
 
 
 

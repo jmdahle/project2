@@ -375,4 +375,5 @@ $(document).ready(() => {
             console.log('added', i);
         }
     }
+
 });
