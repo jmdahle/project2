@@ -5,10 +5,6 @@ $(document).ready(() => {
             // each fruit recipe gets added to array
             var fruits = dbFruits;
 
-            
-
-
-
             $(".smoothieCard").show();
             for (var i = 0; i < fruits.length; i++) {
 
@@ -18,7 +14,6 @@ $(document).ready(() => {
                 //     <h5 class='card title'>`${smothii.smothii_name}`</h5>
                 //     </div>
                 // </div>
-
             
                 var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
                 // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
@@ -38,10 +33,10 @@ $(document).ready(() => {
     });
 
     $("#card").on("click", function (event) {
-        alert("Alerted");
+        window.open('id-vend');
+        //check route
     })
     
-
     // function createRecipeCard(recipe) {
     //     let recipeCard = [];
     //     smoothieCard.push(`<div class='card ingredient-select' style='width: 150px;' data-ingredient-id='${smothii.id}'>`)
