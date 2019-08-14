@@ -142,13 +142,13 @@ module.exports = function(app) {
 
 
   function updatePrices() {
-    let sql = `select recipes.smothiiid, sum(recipe_amount * (ingredient_restock_price/ingredient_restock_amount)) as total_cost from Recipes inner join ingredients on recipes.ingredientid = ingredients.id  group by recipes.SmothiiId;`;
+    let sql = `select Recipes.smothiiid, sum(recipe_amount * (ingredient_restock_price/ingredient_restock_amount)) as total_cost from Recipes inner join Ingredients on Recipes.ingredientid = Ingredients.id  group by Recipes.SmothiiId;`;
     db.sequelize.query(sql, { type: db.sequelize.QueryTypes.SELECT }).then( (dbResults) => {
       let costsArray = dbResults;
       for (let i = 0; i < costsArray.length; i ++) {
         let smothiiPrice = costsArray[i].total_cost * 1.50;
         let smothii_id = costsArray[i].smothiiid;
-        let sql2 = `UPDATE Smothiis SET smothii_price = ${smothiiPrice} WHERE Smothiis.id = ${smothii_id}`;
+        let sql2 = `UPDATE Smothiis SET smothii_price = ${smothiiPrice} WHERE Smothiis.id = ${smothii_id};`;
         db.sequelize.query(sql2, { type: db.sequelize.QueryTypes.UPDATE });
       }
     })
