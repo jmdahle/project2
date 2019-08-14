@@ -14,7 +14,7 @@ $(document).ready(() => {
                 //     <h5 class='card title'>`${smothii.smothii_name}`</h5>
                 //     </div>
                 // </div>
-            
+
                 var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
                 // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
                 var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
@@ -36,7 +36,7 @@ $(document).ready(() => {
         window.open('id-vend');
         //check route
     })
-    
+
     // function createRecipeCard(recipe) {
     //     let recipeCard = [];
     //     smoothieCard.push(`<div class='card ingredient-select' style='width: 150px;' data-ingredient-id='${smothii.id}'>`)

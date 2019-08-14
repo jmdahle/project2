@@ -17,20 +17,22 @@
     color: rgb(243, 255, 73);
 }
 
-#card{
-    margin-left:30px;
+#card {
+    margin-left: 30px;
     margin-top: 30px;
-  }  
+}
 
-.card-body{
+.card-body {
     font-family: Lato;
     font-style: normal;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-.card-text{
+
+.card-text {
     font-size: 15px;
 }
-#smoothieRecipes{
-    display:inline-block;
+
+#smoothieRecipes {
+    display: inline-block;
 }
