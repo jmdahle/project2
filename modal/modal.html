@@ -38,6 +38,7 @@
         // When the user clicks the button, open the modal 
         btn.onclick = function () {
             modal.style.display = "block";
+
         }
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
@@ -45,7 +46,18 @@
                 modal.style.display = "none";
             }
         }
+        setTimeout(sevenSeconds,1000 * 7);
+
+        function sevenSeconds(){
+            console.log("123");
+            $("#smoothieModal").hide
+
+        }
+
     </script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    
 </body>
 
 </html>
