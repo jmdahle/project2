@@ -1,0 +1,89 @@
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <!-- form container: card -->
+            <div id='new-smothii-card' class='card'>
+                <div class='card-body'>
+                    <h1 id='new-smothii-title' class='card-title'>New Smothii</h1>
+                    <!-- form for record -->
+                    <form id='new-smothii' data-smothii-image-index='1' style='background: url(/images/smothiis/1.png')><span id='smothii-id' data-value='new'></span>
+                        <div class='row'>
+                            <div class='col-md-9'>
+                                <div class='spacer1' style='height: 140px;'>&nbsp;</div>
+                                <div class='form-group'>
+                                    <label for='smothii-name'>Smothii Name</label>
+                                    <input type='text' class='form-control' id='smothii-name' placeholder=''>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='smothii-description'>Description</label>
+                                    <textarea type='textarea' class='form-control' id='smothii-description' rows='2'></textarea>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='smothii-creator'>Creator</label>
+                                    <input type='text' class='form-control' id='smothii-creator'>
+                                </div>
+                                <div class='form-group'>
+                                    <a id='btn-right-smothii-image'>  <i id='change-smothii-image' class="fa fa-chevron-right" aria-hidden="true"></i></a><span id='btn-title-change-smothii'>Change Your Smothii Image</h5>
+                                </div>
+                            </div>
+                            <div class='col-md-3'>
+                            </div>
+                        </div>
+                        <button id='btn-submit-smothii' type='button' class='btn btn-success'>Save My Smothii</button>
+                    </form>
+                </div>
+            </div>
+            <!-- form container: card -->
+            <div id='new-recipe-card' class='card'>
+                <div class='card-body'>
+                    <h5 id='new-recipe-title' class='card-title'>Smothii Recipe</h5>
+                    <p>Select 3 ingredients for your custom smothii.</p>
+                    <!-- form for record -->
+                    <form id='new-recipe'>
+                        <div class='row'>
+                            <div class='col-md-1'>
+                                <a id='go-left'><i class='fa fa-chevron-left' aria-hidden='true'></i></a>
+                            </div>
+                            <div class='col-md-10'>
+                                <div id='content'>
+                                <!-- ingredient selector (Each Ingredient DRAGs)-->
+                                    <div id='carousel-ingredients'>
+            
+                                    </div>
+
+                                    <!-- selected ingredients (DROP area)-->
+                                    <img id='smothii-cup' class='dropzone' src='/images/emptySmothiiCup.png' alt='smothii-cup'>
+                                    <div id='spacer' style='height: 200px;'></div>
+                                    <div id='selected-ingredients'>
+                                    
+                                    </div>
+                                    <button id='btn-reset-recipe' type='button' class='btn btn-success'>Reset Recipe</button>                                    <button id='btn-submit-recipe' type='button' class='btn btn-success'>Make my Smothii</button>
+                                </div>
+                            </div>
+                            <div class='col-md-1'>
+                                <a id='go-right'><i class='fa fa-chevron-right' aria-hidden='true'></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- modal - error on form -->
+            <div id='modalError' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-title' class='modal-title'>Error</h5>
+                        </div>
+                        <div id='modal-body' class='modal-body'>
+                            <p id='error-message'></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button id='btn-error-ok' type='button' class='btn btn-danger'>OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='/js/jd-choose-your-own.js'></script>
