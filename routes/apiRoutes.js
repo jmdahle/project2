@@ -32,6 +32,7 @@ module.exports = function(app) {
 
   // SELECT SMOTHII BY CATEGORY
   app.get('/api/smothii/:category', (request, response) => {
+    updatePrices();
     // select where smothii_category = :category
     // categories: 'user' 'fruit' 'vege'
     db.Smothii.findAll( {where: { smothii_category: request.params.category }
