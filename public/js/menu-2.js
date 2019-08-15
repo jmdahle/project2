@@ -5,6 +5,7 @@ $(document).ready( () => {
     $(document).on('click', '#veggieButton', vbClick);
     $(document).on('click', '#userButton', userClick);
     $(document).on('click', '.menuCard', openVend);
+    $(document).on('click', '#homeButton', goHome)
 
 
     function openVend(event) {
@@ -16,6 +17,11 @@ $(document).ready( () => {
 
     function clearAll() {
         $('#smoothieRecipes').empty();
+    }
+
+    function goHome(event) {
+        event.preventDefault();
+        window.location.replace('/');
     }
 
     function allClick(event) {
@@ -31,9 +37,13 @@ $(document).ready( () => {
                 console.log(smoothieImage);
                 var smoothieBody = $(`<div class='card-body menuCard-body'>`);
                 var smoothieName = $(`<h5 class='card-title menuCard-title'>${all[i].smothii_name}</h5>`);
+                // let ingredients = getIngredientList(all[i].id);
+                // console.log('ingredients:',ingredients);
+                // ingredientList = $(ingredients);
                 var smoothiePrice = $(`<p class='card-text menuCard-text'>${all[i].smothii_price}</p>`);
                 $(smoothieBody).append(smoothieName);
                 $(smoothieBody).append(smoothiePrice);
+                // $(smoothieBody).append(ingredientList);
                 $(smoothieCard).append(smoothieBody);
                 if (all[i].smothii_available) {
                     $("#smoothieRecipes").append(smoothieCard);
@@ -111,6 +121,23 @@ $(document).ready( () => {
                     $("#smoothieRecipes").append(smoothieCard);
                 }
             }
+        });
+    }
+
+    function getIngredientList (smothii_id) {
+        let ingredientList = [];
+        ingredientList.push('</p>');
+        // get the ingredients for this smothii
+        $.get(`/api/recipe/${smothii_id}`, (dbIngredients) => {
+            let ingredients = dbIngredients;
+            for (let i = 0; i < ingredients.length; i++) {
+                let ingredient = ingredients[i].Ingredient.ingredient_name;
+                ingredientList.push(ingredient + ' ');
+            }
+            ingredientList.push('</p>');
+            ingredientList = ingredientList.join('');
+            console.log(ingredientList);
+            return ingredientList;
         });
     }
 });
