@@ -111,7 +111,7 @@ $(document).ready ( () => {
         }
         console.log('done adding smothii; ready to vend');
         // Simulate an HTTP redirect:
-        window.location.replace(`/jd-vend/${newSmothiiId}`);
+        window.location.replace(`/vend/${newSmothiiId}`);
     }
 
     function showErrorModal(message) {
