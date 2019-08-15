@@ -1,3 +1,23 @@
+//jd - added document.ready to wait for page to load
+$(document).ready( () => {
+// jd - handle click events on page
+  $(document).on('click', '#btn-link-menu', linkToMenu);
+  $(document).on('click', '#btn-link-create-your-own', linkToCreate);
+
+  function linkToMenu (event) {
+    event.preventDefault();
+    alert('go to menu');
+    // Simulate an HTTP redirect:
+    window.location.replace("/menu");
+  }
+
+  function linkToCreate (event) {
+    event.preventDefault();
+    // Simulate an HTTP redirect:
+    window.location.replace("/choose-your-own");
+  }
+  /* jd - commented out unused code 
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -97,3 +117,7 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+*/
+
+//jd - end of document.ready
+});
