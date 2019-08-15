@@ -1,8 +1,38 @@
-.header{
-position: absolute;
-width: 1163px;
-height: 223px;
-left: -33px;
-top: -65px;
-background: #7AC313;
+#navbarNav {
+    height: 110px;
+    background: #7AC313;
+    font-family: "Dosis";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 56px;
+}
+
+#navbarNav a {
+    color: #FFFFFF;
+    padding: 40px;
+}
+
+#navbarNav a:hover, a:active {
+    color: rgb(243, 255, 73);
+}
+
+.menuCard {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.menuCard-body {
+    font-family: Lato;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.menuCard-text {
+    font-size: 15px;
+}
+
+#smoothieRecipes {
+    display: inline-block;
 }

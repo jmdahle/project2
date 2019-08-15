@@ -14,7 +14,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 1,
-            ingredientid: 2
+            ingredientid: 4
         },
         {
             recipe_amount: 1,
@@ -24,7 +24,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 2,
-            ingredientid: 5
+            ingredientid: 4
         },
         {
             recipe_amount: 1,
@@ -34,12 +34,12 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 2,
-            ingredientid: 19
+            ingredientid: 16
         },
         {
             recipe_amount: 1,
             smothiiid: 3,
-            ingredientid: 7
+            ingredientid: 10
         },
         {
             recipe_amount: 1,
@@ -54,7 +54,7 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 4,
-            ingredientid: 10
+            ingredientid: 9
         },
         {
             recipe_amount: 1,
@@ -64,38 +64,38 @@ $(document).ready(() => {
         {
             recipe_amount: 1,
             smothiiid: 4,
-            ingredientid: 17
+            ingredientid: 15
         }
     ];
 
     // seeds array of smothiis
     let smothiiSeeds = [
         {
-            smothii_name: 'Smothii A',
-            smothii_description: 'Smothii is Always the best',
+            smothii_name: 'Berry Hipster',
+            smothii_description: 'A modern twist on a classic',
             smothii_creator: 'Smothii Central',
-            smothii_image_url: '/images/smothiis/1.png',
+            smothii_image_url: '/images/smothiis/8.png',
             smothii_category: 'fruit'
         },
         {
-            smothii_name: 'Smothii B',
-            smothii_description: 'Smothii is Better than the best',
-            smothii_creator: 'Smothii Central',
-            smothii_image_url: '/images/smothiis/2.png',
-            smothii_category: 'fruit'
-        },
-        {
-            smothii_name: 'Smothii C',
-            smothii_description: 'Smothii is Clearly the best',
+            smothii_name: 'South American',
+            smothii_description: 'Peach mango and greek yogurt',
             smothii_creator: 'Smothii Central',
             smothii_image_url: '/images/smothiis/3.png',
+            smothii_category: 'fruit'
+        },
+        {
+            smothii_name: 'Green Machine',
+            smothii_description: 'Kale, spinach and coconut milk',
+            smothii_creator: 'Smothii Central',
+            smothii_image_url: '/images/smothiis/1.png',
             smothii_category: 'vege'
         },
         {
-            smothii_name: 'Smothii D',
-            smothii_description: 'Smothii is a Damn sight better than the best',
+            smothii_name: 'Salad Smothii',
+            smothii_description: 'Apple lettuce and ice water',
             smothii_creator: 'Smothii Central',
-            smothii_image_url: '/images/smothiis/4.png',
+            smothii_image_url: '/images/smothiis/7.png',
             smothii_category: 'vege'
         }
     ];
