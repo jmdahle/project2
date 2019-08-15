@@ -20,7 +20,9 @@ $(document).ready(() => {
                 console.log(smoothieCard)
                 $(smoothieBody).append(smoothiePrice)
                 $(smoothieCard).append(smoothieBody)
-                $("#smoothieRecipes").append(smoothieCard)
+                if (fruits[i].smothii_available) {
+                    $("#smoothieRecipes").append(smoothieCard);
+                }
             }
         })
     });
@@ -51,7 +53,9 @@ $(document).ready(() => {
                 $(smoothieBody).append(smoothieName);
                 $(smoothieBody).append(smoothiePrice);
                 $(smoothieCard).append(smoothieBody);
-                $("#smoothieRecipes").append(smoothieCard);
+                if (veggies[i].smothii_available) {
+                    $("#smoothieRecipes").append(smoothieCard);
+                }
             }
         })
     });
@@ -74,7 +78,9 @@ $(document).ready(() => {
                 $(smoothieBody).append(smoothieName);
                 $(smoothieBody).append(smoothiePrice);
                 $(smoothieCard).append(smoothieBody);
-                $("#smoothieRecipes").append(smoothieCard);
+                if (user[i].smothii_available) {
+                    $("#smoothieRecipes").append(smoothieCard);
+                }
             }
         })
     });
