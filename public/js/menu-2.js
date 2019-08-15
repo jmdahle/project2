@@ -25,7 +25,7 @@ $(document).ready( () => {
         $.get('/api/smothiis', (dbAll) => {
             var all = dbAll;
             for (var i = 0; i < all.length; i++) {
-                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${all[i].id}'>`);
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 18rem' data-id='${all[i].id}'>`);
                 var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${all[i].smothii_image_url}'>`);
                 $(smoothieCard).append(smoothieImage);
                 console.log(smoothieImage);
@@ -49,7 +49,7 @@ $(document).ready( () => {
         $.get('/api/smothii/fruit', (dbFruits) => {
             var fruits = dbFruits;
             for (var i = 0; i < fruits.length; i++) {
-                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${fruits[i].id}'>`);
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 18rem' data-id='${fruits[i].id}'>`);
                 var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${fruits[i].smothii_image_url}'>`);
                 $(smoothieCard).append(smoothieImage);
                 console.log(smoothieImage);
@@ -73,7 +73,7 @@ $(document).ready( () => {
         $.get('/api/smothii/vege', (dbVeggies) => {
             var veggies = dbVeggies;
             for (var i = 0; i < veggies.length; i++) {
-                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${veggies[i].id}'>`);
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 18rem' data-id='${veggies[i].id}'>`);
                 var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${veggies[i].smothii_image_url}'>`);
                 $(smoothieCard).append(smoothieImage);
                 console.log(smoothieImage);
@@ -97,7 +97,7 @@ $(document).ready( () => {
         $.get('/api/smothii/user', (dbUser) => {
             var user = dbUser;
             for (var i = 0; i < user.length; i++) {
-                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${user[i].id}'>`);
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 18rem' data-id='${user[i].id}'>`);
                 var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${user[i].smothii_image_url}'>`);
                 $(smoothieCard).append(smoothieImage);
                 console.log(smoothieImage);
