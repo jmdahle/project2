@@ -1,14 +1,87 @@
-<section id="add" class="container">
-  <div class="calculation-wrap">
-    <h1>Name of Smoothie</h1>
+<div class='container'>
+    <!-- buy the smothii -->
+    <div id='main-panel' style='padding: 12px;'>
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h1>Purchase Smothii</h1>
+                <div id='smothii-for-purchase'>
 
-    <form action="./" method="POST">
-      <div class="input-name">
-        <label for="smoothie_name">Smoothie Name</label>
-        <input type="text" name="smoothie-name" id="smoothie-name" class="input-box" placeholder="" maxlength="50"
-          value={{}} </div> <div class="input-group">
-        <label for="price">Price</label>
-        <input type="number" name="price" id="price" class="input-box" placeholder="" maxlength="50" value={{}} </div>
-</form> 
-  </div> 
-    </section>
+                </div>
+                <form>
+                    <button id='btn-purchase-smothii' type="submit">BUY NOW</button>
+                </form>
+            </div>
+            <!-- swipe card, confirm purchase -->
+            <div id='modal-confirm' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document' style='left: 110px;'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-confirm-title' class='modal-title'>Confirm your Purchase/Swipe your Card</h5>
+                        </div>
+                        <div id='modal-confirm-body' class='modal-body'>
+                            <p id='confirm-message'></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button id='btn-confirm-ok' type='button'>CONFIRM</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- receipt for purchase -->
+            <div id='modal-receipt' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document' style='left: 180px;'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-receipt-title' class='modal-title'>Your card has been charged.</h5>
+                        </div>
+                        <div id='modal-confirm-body' class='modal-body'>
+                            <p id='receipt-message'></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <!-- <button id='btn-receipt-ok' type='button'>MAKE</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- your smothii is being made -->
+            <!-- here is where you want to replace with the animated gif -->
+            <div id='modal-make' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document' style='left: 180px;'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-make-title' class='modal-title'>Making your smothii</h5>
+                        </div>
+                        <div id='modal-make-body' class='modal-body'>
+                            <p id='make-message'></p>
+                            <img src='/images/making-smoothi.gif' style='width: 300px;'>
+                        </div>
+                        <div class='modal-footer'>
+                            <!-- <button id='btn-make-ok' type='button'>CONFIRM</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- thank you for your purchase -->
+            <div id='modal-finish' class='modal' tabindex='-1' role='dialog'>
+                <div class='modal-dialog' role='document' style='left: 200px;'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 id='modal-finish-title' class='modal-title'>Complete</h5>
+                        </div>
+                        <div id='modal-finish-body' class='modal-body'>
+                            <p id='finish-message'></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button id='btn-finish-ok' type='button'>DONE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id='smothii-id' data-smothii-id='{{ smothii_id }}'></div>
+<script src='/js/vend.js'></script>
