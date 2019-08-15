@@ -1,5 +1,12 @@
 $(document).ready(() => {
+
+    function clearAll() {
+        $('#smoothieRecipes').empty();
+    }
+
     $("#fruitButton").on("click", function (event) {
+        event.preventDefault();
+        clearAll()
         $.get('/api/smothii/fruit', (dbFruits) => {
             var fruits = dbFruits;
             for (var i = 0; i < fruits.length; i++) {
@@ -14,16 +21,6 @@ $(document).ready(() => {
                 $(smoothieBody).append(smoothiePrice)
                 $(smoothieCard).append(smoothieBody)
                 $("#smoothieRecipes").append(smoothieCard)
-
-                // var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
-                // // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
-                // var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
-                // var smoothieImage = $(`<img class='card-img-top smoothie-small-image' src=${dbFruits[i].smothii_image_url} >`);
-                // let smoothiePrice = $(`<h5 class='card-body'>${dbFruits[i].smothii_price}</h5>`)
-                // $(".smoothieCard").append(smoothieImage)
-                // $(".smoothieCard").append(smoothieName)
-                // $(".smoothieCard").append(smoothiePrice)
-                //style= 'width: 200px'
             }
         })
     });
@@ -37,32 +34,48 @@ $(document).ready(() => {
     }
 
     $("#veggieButton").on("click", function (event) {
+        event.preventDefault();
+        clearAll()
         $.get('/api/smothii/vege', (dbVege) => {
             // each vege recipe gets added to array
             let veggies = dbVege;
             for (let i = 0; i < veggies.length; i++) {
                 console.log(veggies)
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${veggies[i].id}'>`);
+                var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${veggies[i].smothii_image_url}'>`);
+                $(smoothieCard).append(smoothieImage);
+                console.log(smoothieImage);
+                var smoothieBody = $(`<div class='card-body menuCard-body'>`);
+                var smoothieName = $(`<h5 class='card-title menuCard-title'>${veggies[i].smothii_name}</h5>`);
+                var smoothiePrice = $(`<p class='card-text menuCard-text'>${veggies[i].smothii_price}</p>`);
+                $(smoothieBody).append(smoothieName);
+                $(smoothieBody).append(smoothiePrice);
+                $(smoothieCard).append(smoothieBody);
+                $("#smoothieRecipes").append(smoothieCard);
             }
         })
     });
 
     $("#userButton").on("click", function (event) {
+        event.preventDefault();
+        clearAll()
         $.get('/api/smothii/user', (dbUser) => {
             // each fruit gets added to array
-            let userRecipes = dbUser;
-            for (let i = 0; i < userRecipes.length; i++) {
-                console.log(userRecipes)
+            let user = dbUser;
+            for (let i = 0; i < user.length; i++) {
+                console.log(user)
+                var smoothieCard = $(`<div class='d-inline-block card menuCard' style = 'width: 20rem' data-id='${user[i].id}'>`);
+                var smoothieImage = $(`<img class='card-img-top smoothieImg' src='${user[i].smothii_image_url}'>`);
+                $(smoothieCard).append(smoothieImage);
+                console.log(smoothieImage);
+                var smoothieBody = $(`<div class='card-body menuCard-body'>`);
+                var smoothieName = $(`<h5 class='card-title menuCard-title'>${user[i].smothii_name}</h5>`);
+                var smoothiePrice = $(`<p class='card-text menuCard-text'>${user[i].smothii_price}</p>`);
+                $(smoothieBody).append(smoothieName);
+                $(smoothieBody).append(smoothiePrice);
+                $(smoothieCard).append(smoothieBody);
+                $("#smoothieRecipes").append(smoothieCard);
             }
         })
-    })
+    });
 })
-
-// $("#card").on("click", function (event) {
-//     window.open('id-vend');
-//     //check route
-// })
-
-// function checkStock(){
-// if (stock == 0){
-//     <img src="public/images/outofstock" alt="outOfStock"></img>
-// }
