@@ -16,6 +16,7 @@ $(document).ready(() => {
                 $(".menuCard").append(smoothieBody)
                 $("#smoothieRecipes").append(smoothieCard)
 
+
                 // var smoothieCard = $(`<div class='card smothii-small' id=${dbFruits[i].id}>`)
                 // // var smoothieName = $("<span>").text(dbFruits[i].smothii_name);
                 // var smoothieName = $(`<h5 class='card-title'>${dbFruits[i].smothii_name}</h5>`)
@@ -57,12 +58,3 @@ $(document).ready(() => {
     })
 })
 
-// $("#card").on("click", function (event) {
-//     window.open('id-vend');
-//     //check route
-// })
-
-// function checkStock(){
-// if (stock == 0){
-//     <img src="public/images/outofstock" alt="outOfStock"></img>
-// }
