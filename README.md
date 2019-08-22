@@ -56,6 +56,12 @@ Key features of the application:
 * The vending view is configured for a specific screen size for the vending machine screen.
 
 ## Technical Notes
+* KNOWN FLAW: If you need to seed an empty database (which we assumed would be a setup state when the vending maching plugged in), navigate to [/test/seed/] and seed the ingredients, smothiis and recipies (in that order).
+please don't access that route an add to the live db -- in it's present state it would contnue to add copies of ingredients, potentialy overrunning the database or carosel of ingredients in the UI.
+* Drag and Drop capability provided through [jquery.ui](https://jqueryui.com/)
+* Extension of those capabilities to a touchscreen provided through [jquery.ui.touch-punch.min.js](http://touchpunch.furf.com/)
+* To avoid code collisions, each team member deployed working or logically-wroking code in test files.  Those proofs of concept or working models of the interface were copied into project files and "wired up" to other working components.  As a consequence, the leftover test code has not been removed (and may be in various working states).
+* The non-working code is not referenced in the closed working model of the vending interface.
 
 ## Team
 The smöthii development team included:
